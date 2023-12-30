@@ -9,7 +9,7 @@ fi
 # Compilation step
 for source_file in "$@"; do
     echo "Compiling: $source_file"
-    gcc -c "$source_file" -o "${source_file%.c}.o"
+    gcc $(pkg-config --cflags gtk+-3.0) -o "$(basename -s .c $source_file)" "$source_file" $(pkg-config --libs gtk+-3.0)
 done
 
 # Linking step for server
