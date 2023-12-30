@@ -195,7 +195,11 @@ void handleClient(int client_socket) {
             case 4:
                 // Get Connection Duration
                 printf("Received request: Get Connection Duration\n");
-
+                srand(time(NULL));
+                int sleep_duration = rand() % 5 + 1;
+                printf("Sleeping for %d seconds before calculating duration...\n", sleep_duration);
+                sleep(sleep_duration);
+                
                 time_t end_time;
                 time(&end_time);  // Record the end time
 
